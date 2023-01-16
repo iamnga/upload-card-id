@@ -14,7 +14,8 @@ export class MainService {
   apiUrl = environment.apiUrl;
   headerDict = {
     'Content-Type': 'application/json;',
-    Accept: '*/*'
+    Accept: '*/*',
+    'Access-Control-Allow-Origin': '*'
   };
   constructor(private http: HttpClient) {}
 

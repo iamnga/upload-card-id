@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Service } from 'src/app/models/enum';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AllInOneRequest } from '../models/aio';
@@ -10,12 +8,11 @@ import { UUID } from 'angular2-uuid';
   providedIn: 'root',
 })
 export class MainService {
-  isProcessing = false
+  isProcessing = false;
   apiUrl = environment.apiUrl;
   headerDict = {
     'Content-Type': 'application/json;',
     Accept: '*/*',
-    'Access-Control-Allow-Origin': '*'
   };
   constructor(private http: HttpClient) {}
 
@@ -29,12 +26,7 @@ export class MainService {
     });
   }
 
-  uploadImage(
-    img: string,
-    type: string,
-    deviceID: string ,
-    sessionID: string
-  ) {
+  uploadImage(img: string, type: string, deviceID: string, sessionID: string) {
     let req = this.newRequest(
       { imageBas64: img, imageType: type },
       deviceID,
